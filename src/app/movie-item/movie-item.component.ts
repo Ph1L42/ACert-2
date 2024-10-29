@@ -12,7 +12,7 @@ import {DatePipe} from "@angular/common";
         <small class="subtitle">
           <span>Release date: {{ movie.release_date | date: 'yyyy-MM-dd' }}</span>
           <span>Budget: $ {{movie.budget}} million</span>
-          <span>Duration: {{ movie.duration }}</span>
+          <span>Duration: {{ movie.duration }} min</span>
         </small>
       </div>
       <button>Details</button>
