@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Movie} from "../model/movie.model";
+import {DatePipe} from "@angular/common";
 
 
 @Component({
@@ -6,18 +8,23 @@ import { Component } from '@angular/core';
   template: `
     <div class="movie-item">
       <div>
-        <h4>Test movie</h4>
+        <h4>{{ movie.title }}</h4>
         <small class="subtitle">
-          <span>Release date: 2024-01-02</span>
+          <span>Release date: {{ movie.release_date | date: 'yyyy-MM-dd' }}</span>
+          <span>Budget: $ {{movie.budget}} million</span>
+          <span>Duration: {{ movie.duration }}</span>
         </small>
       </div>
       <button>Details</button>
     </div>
   `,
   standalone: true,
-  styleUrls: [ 'movie-item.component.scss' ]
+  imports: [
+    DatePipe
+  ],
+  styleUrls: ['movie-item.component.scss']
 })
 export class MovieItemComponent {
-
+  @Input() movie: Movie;
 }
 
